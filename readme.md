@@ -1,0 +1,1 @@
+HokazeがbotとGoで遊ぶ
