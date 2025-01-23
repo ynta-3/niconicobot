@@ -11,7 +11,7 @@ import (
 
 func main() {
         bot, err := traqwsbot.NewBot(&traqwsbot.Options{
-                AccessToken: "アクセストークンをここに入れる",
+                AccessToken: "CYclBElpFyELEvoeTehdHWkAKioLXiATzSSs",
         })
         if err != nil {
                 panic(err)
