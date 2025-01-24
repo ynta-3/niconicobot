@@ -9,6 +9,14 @@ import (
         payload "github.com/traPtitech/traq-ws-bot/payload"
 )
 
+type stampList sturuct {
+        userId string `json:"userId"`
+        stampId string `json:"stampId"`
+        count int `json:"count"`
+        createdAt string `json:"createdAt"`
+        updatedAt string `json:"updatedAt"`
+}
+
 func main() {
         bot, err := traqwsbot.NewBot(&traqwsbot.Options{
                 AccessToken: "CYclBElpFyELEvoeTehdHWkAKioLXiATzSSs",
