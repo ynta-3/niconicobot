@@ -5,12 +5,16 @@ import (
 	"log"
 	"os"
 
+	"github.com/joho/godotenv"
 	traq "github.com/traPtitech/go-traq"
 	traqwsbot "github.com/traPtitech/traq-ws-bot"
 	payload "github.com/traPtitech/traq-ws-bot/payload"
 )
 
 func main() {
+	// Load environment variables from .env when present.
+	_ = godotenv.Load()
+
 	accessToken := os.Getenv("TRAQ_ACCESS_TOKEN")
 	if accessToken == "" {
 		log.Fatal("TRAQ_ACCESS_TOKEN is not set")
