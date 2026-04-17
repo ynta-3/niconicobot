@@ -17,6 +17,15 @@ type stampList sturuct {
         updatedAt string `json:"updatedAt"`
 }
 
+// traQのAPIからスタンプの情報を取得する関数
+func getStampListFromApi(url string) ([]message, error) {
+        resp, err := http.Get(url)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+}
+
 func main() {
         bot, err := traqwsbot.NewBot(&traqwsbot.Options{
                 AccessToken: "CYclBElpFyELEvoeTehdHWkAKioLXiATzSSs",
