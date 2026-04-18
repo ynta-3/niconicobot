@@ -167,6 +167,19 @@ func buildCompliancePrompt(baseInstruction string, text string) string {
 	return fmt.Sprintf("%s\n\nTarget text:\n%s", baseInstruction, text)
 }
 
+func jankenReply(userHand string) (string, bool) {
+	switch userHand {
+	case ":hand_splayed:":
+		return ":v:", true
+	case ":fist:":
+		return ":hand_splayed:", true
+	case ":v:":
+		return ":fist:", true
+	default:
+		return "", false
+	}
+}
+
 func main() {
 	// Load environment variables from .env when present.
 	_ = godotenv.Load()
@@ -225,6 +238,13 @@ func main() {
 					break
 				}
 				content = reply
+			case "\\じゃんけん":
+				botHand, ok := jankenReply(args)
+				if !ok {
+					content = "usage: \\じゃんけん :hand_splayed: | :fist: | :v:"
+					break
+				}
+				content = fmt.Sprintf("あなた: %s\nbot: %s\nbotの勝ち", args, botHand)
 			default:
 				content = "unknown command: " + cmd
 			}
