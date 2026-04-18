@@ -244,7 +244,7 @@ func main() {
 					content = "usage: \\じゃんけん :hand_splayed: | :fist: | :v:"
 					break
 				}
-				content = fmt.Sprintf("あなた: %s\nbot: %s\nbotの勝ち", args, botHand)
+				content = fmt.Sprintf("あなた: %s\nbot: %s", args, botHand)
 			default:
 				content = "unknown command: " + cmd
 			}
