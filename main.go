@@ -170,11 +170,11 @@ func buildCompliancePrompt(baseInstruction string, text string) string {
 func jankenReply(userHand string) (string, bool) {
 	switch userHand {
 	case ":hand_splayed:":
-		return ":v:", true
-	case ":fist:":
-		return ":hand_splayed:", true
-	case ":v:":
 		return ":fist:", true
+	case ":fist:":
+		return ":v:", true
+	case ":v:":
+		return ":hand_splayed:", true
 	default:
 		return "", false
 	}
@@ -238,7 +238,7 @@ func main() {
 					break
 				}
 				content = reply
-			case "\\じゃんけん":
+			case "\\忖度じゃんけん":
 				botHand, ok := jankenReply(args)
 				if !ok {
 					content = "usage: \\じゃんけん :hand_splayed: | :fist: | :v:"
